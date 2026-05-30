@@ -6,15 +6,13 @@ def pruebaPuerto(host, port):
     cliente.settimeout(5)
     # Devuelve True si está abierto, False si no
     try:
-        result = cliente.connect((host, port))
-        if result == 0:
-            print(f"El puerto {port} en {host} esta ABIERTO")
-            return True
-        else:
-            print(f"El puerto {port} en {host} esta CERRADO. (Codigo: {result})")
-            return False
-    except Exception as e:
-        print(f"Error al intentar conectar {e}")
+        cliente.connect((host, port))
+        print(f"El puerto {port} en {host} esta ABIERTO")
+        return True
+    
+            
+    except:
+        print(f"El puerto {port} en {host} esta CERRADO.")
         return False
     
     finally:
